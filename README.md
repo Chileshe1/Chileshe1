@@ -1,10 +1,9 @@
 - 👋 Hi, I’m @Chileshe1
-- 👀 I’m interested in A.i and automation
-- 🌱 I’m currently learning python and C++
+- 👀  Self taught programmer and machine learning engineer 
+- 🌱Purely python and a bit of C++ for MCUs
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me ...
-
-<!---
-Chileshe1/Chileshe1 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+- Email
+chilkatongo4@gmail.com ...
+-LinkedIn 
+https://www.linkedin.com/in/chileshe-katongo-b49615217?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
