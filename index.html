@@ -63,22 +63,30 @@
         }
 
         /* HERO */
-        .hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; gap: 40px; padding: 40px 10%; flex-wrap: wrap; }
-        .hero img { width: 240px; height: 240px; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent); }
+        .hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; gap: 40px; padding: 40px 10%; flex-wrap: wrap; }
+        .hero img { width: 220px; height: 220px; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent); }
         .hero-text { max-width: 500px; }
-        .hero-text h1 { font-size: 3rem; margin: 0; }
+        .hero-text h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin: 0; font-weight: 800; }
 
-        /* CARDS & SECTIONS */
+        /* GRID SYSTEM */
         section { padding: 80px 10%; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        h2 { font-size: 2rem; margin-bottom: 40px; position: relative; display: inline-block; }
+        h2::after { content: ''; width: 50%; height: 4px; background: var(--accent); position: absolute; bottom: -10px; left: 25%; border-radius: 2px; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
         
         .card {
             background: var(--card-bg);
-            padding: 25px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: left;
+            overflow: hidden;
+            transition: transform 0.3s;
         }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+        .card-img { width: 100%; height: 180px; object-fit: cover; }
+        .card-body { padding: 20px; }
 
         .skill-icon { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
 
@@ -96,30 +104,25 @@
         .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
         
         input, textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: var(--input-bg);
-            color: var(--text);
-            font-family: inherit;
+            width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--input-bg); color: var(--text); font-family: inherit;
         }
 
         /* BUTTONS */
-        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
-        button, .btn { 
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .btn { 
             cursor: pointer; border-radius: 10px; border: none; font-weight: 600; 
-            display: flex; align-items: center; gap: 8px; padding: 12px 24px; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; text-decoration: none;
         }
         .whatsapp { background: #25D366; color: white; }
-        .linkedin { background: #0a66c2; color: white; }
         .github { background: #333; color: white; }
+        .linkedin { background: #0a66c2; color: white; }
         .submit-btn { background: var(--primary); color: white; width: 100%; justify-content: center; }
 
         @media (max-width: 768px) {
             nav { padding: 1rem 5%; }
-            .hero { text-align: center; }
-            .hero-text h1 { font-size: 2.2rem; }
+            .hero { text-align: center; justify-content: center; }
+            .btn-group { justify-content: center; }
         }
     </style>
 </head>
@@ -128,10 +131,10 @@
     <nav>
         <div class="logo">CHILESHE KATONGO</div>
         <div class="nav-right">
-            <a href="#skills">Skills</a>
-            <a href="#projects">Work</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
             <a href="#contact">Contact</a>
-            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <button id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
         </div>
     </nav>
 
@@ -139,20 +142,32 @@
         <img src="20250814_084846.jpg" alt="Chileshe Katongo">
         <div class="hero-text">
             <h1>Chileshe Katongo</h1>
-            <p>AI • Robotics • Embedded Systems Developer</p>
-            <div class="btn-group" style="justify-content: flex-start;">
+            <p style="font-size: 1.2rem; opacity: 0.8;">AI • Robotics • Embedded Systems Developer</p>
+            <div class="btn-group">
                 <a href="https://wa.me/260976069055" class="btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 <a href="https://github.com/chileshe1" class="btn github"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/chileshe-katongo-b49615217" class="btn linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
         </div>
     </div>
 
-    <section id="skills">
-        <h2>Expertise</h2>
+    <section id="projects">
+        <h2>Projects</h2>
         <div class="grid">
-            <div class="card"><i class="fab fa-python skill-icon"></i> <h3>Python</h3><p>Advanced scripting and AI logic.</p></div>
-            <div class="card"><i class="fas fa-microchip skill-icon"></i> <h3>ESP32</h3><p>Hardware integration and IoT.</p></div>
-            <div class="card"><i class="fas fa-robot skill-icon"></i> <h3>Robotics</h3><p>ROS 2 and autonomous systems.</p></div>
+            <div class="card">
+                <img src="rover.jpg" class="card-img" alt="Autonomous AI Rover">
+                <div class="card-body">
+                    <h3 style="color: var(--accent); margin-top: 0;">Autonomous AI Rover</h3>
+                    <p>Robot navigation using reinforcement learning and advanced obstacle avoidance.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="iot.jpg" class="card-img" alt="ESP32 IoT System">
+                <div class="card-body">
+                    <h3 style="color: var(--accent); margin-top: 0;">ESP32 IoT System</h3>
+                    <p>Wireless monitoring system using localized sensors and real-time data streaming.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -160,38 +175,42 @@
         <h2>Education</h2>
         <div class="grid">
             <div class="card">
-                <h3>PEAS Kampinda Secondary</h3>
-                <p>Secondary Education</p>
+                <div class="card-body">
+                    <h3>PEAS Kampinda Secondary School</h3>
+                    <p>Secondary Education</p>
+                </div>
             </div>
             <div class="card">
-                <h3>Misolo Primary School</h3>
-                <p>Primary Education</p>
+                <div class="card-body">
+                    <h3>Misolo Primary School</h3>
+                    <p>Primary Education</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Let's Work Together</h2>
+        <h2>Connect With Me</h2>
         <div class="contact-container">
             <form action="https://formspree.io/f/your-id-here" method="POST">
                 <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="name" placeholder="Your Name" required>
+                    <label>Name</label>
+                    <input type="text" name="name" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="your@email.com" required>
+                    <input type="email" name="email" placeholder="Enter your email" required>
                 </div>
                 <div class="form-group">
                     <label>Message</label>
-                    <textarea name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+                    <textarea name="message" rows="4" placeholder="Your message..." required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
     </section>
 
-    <footer style="padding: 40px; text-align: center; opacity: 0.6; font-size: 14px;">
+    <footer style="padding: 40px; text-align: center; opacity: 0.6; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05);">
         <p>© 2026 Chileshe Katongo | AI & Embedded Systems Developer</p>
     </footer>
 
