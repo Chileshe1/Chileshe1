@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Chileshe | AI & Embedded Systems Developer</title>
+    <title>Chileshe Katongo | AI & Embedded Systems Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -49,10 +49,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -1px; }
-
         .nav-right { display: flex; align-items: center; gap: 20px; }
-
         nav a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500; opacity: 0.7; }
         nav a:hover { opacity: 1; color: var(--accent); }
 
@@ -67,9 +64,23 @@
 
         /* HERO */
         .hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; gap: 40px; padding: 40px 10%; flex-wrap: wrap; }
-        .hero img { width: 240px; height: 240px; object-fit: cover; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; border: 2px solid var(--accent); }
+        .hero img { width: 240px; height: 240px; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent); }
         .hero-text { max-width: 500px; }
-        .hero-text h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
+        .hero-text h1 { font-size: 3rem; margin: 0; }
+
+        /* CARDS & SECTIONS */
+        section { padding: 80px 10%; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: left;
+        }
+
+        .skill-icon { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
 
         /* CONTACT FORM */
         .contact-container {
@@ -82,7 +93,7 @@
         }
 
         .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
         
         input, textarea {
             width: 100%;
@@ -94,33 +105,30 @@
             font-family: inherit;
         }
 
-        .submit-btn {
-            width: 100%;
-            background: var(--primary);
-            color: white;
-            justify-content: center;
-            padding: 15px;
-            font-size: 16px;
+        /* BUTTONS */
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+        button, .btn { 
+            cursor: pointer; border-radius: 10px; border: none; font-weight: 600; 
+            display: flex; align-items: center; gap: 8px; padding: 12px 24px; text-decoration: none;
         }
-
-        /* UTILS */
-        section { padding: 80px 10%; text-align: center; }
-        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-        button { cursor: pointer; border-radius: 10px; border: none; font-weight: 600; display: flex; align-items: center; gap: 8px; padding: 10px 20px; }
         .whatsapp { background: #25D366; color: white; }
+        .linkedin { background: #0a66c2; color: white; }
+        .github { background: #333; color: white; }
+        .submit-btn { background: var(--primary); color: white; width: 100%; justify-content: center; }
 
         @media (max-width: 768px) {
             nav { padding: 1rem 5%; }
             .hero { text-align: center; }
-            .hero-text { display: flex; flex-direction: column; align-items: center; }
+            .hero-text h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">CHILESHE.DEV</div>
+        <div class="logo">CHILESHE KATONGO</div>
         <div class="nav-right">
+            <a href="#skills">Skills</a>
             <a href="#projects">Work</a>
             <a href="#contact">Contact</a>
             <button id="theme-toggle"><i class="fas fa-moon"></i></button>
@@ -128,54 +136,74 @@
     </nav>
 
     <div class="hero">
-        <img src="20250814_084846.jpg" alt="Chileshe">
+        <img src="20250814_084846.jpg" alt="Chileshe Katongo">
         <div class="hero-text">
-            <h1>Hi, I'm <span style="color: var(--accent)">Chileshe</span>.</h1>
-            <p>Developing robust AI solutions and embedded systems with a focus on robotics and IoT.</p>
-            <div class="btn-group">
-                <button class="whatsapp" onclick="window.location.href='https://wa.me/260976069055'">
-                    <i class="fab fa-whatsapp"></i> Chat Now
-                </button>
+            <h1>Chileshe Katongo</h1>
+            <p>AI • Robotics • Embedded Systems Developer</p>
+            <div class="btn-group" style="justify-content: flex-start;">
+                <a href="https://wa.me/260976069055" class="btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://github.com/chileshe1" class="btn github"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </div>
     </div>
 
+    <section id="skills">
+        <h2>Expertise</h2>
+        <div class="grid">
+            <div class="card"><i class="fab fa-python skill-icon"></i> <h3>Python</h3><p>Advanced scripting and AI logic.</p></div>
+            <div class="card"><i class="fas fa-microchip skill-icon"></i> <h3>ESP32</h3><p>Hardware integration and IoT.</p></div>
+            <div class="card"><i class="fas fa-robot skill-icon"></i> <h3>Robotics</h3><p>ROS 2 and autonomous systems.</p></div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>PEAS Kampinda Secondary</h3>
+                <p>Secondary Education</p>
+            </div>
+            <div class="card">
+                <h3>Misolo Primary School</h3>
+                <p>Primary Education</p>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
-        <h2>Get In Touch</h2>
+        <h2>Let's Work Together</h2>
         <div class="contact-container">
             <form action="https://formspree.io/f/your-id-here" method="POST">
                 <div class="form-group">
-                    <label>Your Name</label>
-                    <input type="text" name="name" placeholder="John Doe" required>
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="_replyto" placeholder="email@example.com" required>
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="your@email.com" required>
                 </div>
                 <div class="form-group">
-                    <label>Project Details</label>
-                    <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
+                    <label>Message</label>
+                    <textarea name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
     </section>
 
-    <footer>
-        <p>© 2026 Chileshe Katongo | Powered by Innovation</p>
+    <footer style="padding: 40px; text-align: center; opacity: 0.6; font-size: 14px;">
+        <p>© 2026 Chileshe Katongo | AI & Embedded Systems Developer</p>
     </footer>
 
     <script>
         const toggle = document.getElementById('theme-toggle');
-        const body = document.body;
         const icon = toggle.querySelector('i');
-
         toggle.addEventListener('click', () => {
-            if (body.hasAttribute('data-theme')) {
-                body.removeAttribute('data-theme');
+            if (document.body.hasAttribute('data-theme')) {
+                document.body.removeAttribute('data-theme');
                 icon.className = 'fas fa-moon';
             } else {
-                body.setAttribute('data-theme', 'light');
+                document.body.setAttribute('data-theme', 'light');
                 icon.className = 'fas fa-sun';
             }
         });
