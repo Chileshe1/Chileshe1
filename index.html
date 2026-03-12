@@ -1,240 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Chileshe Katongo | AI & Embedded Systems Developer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<title>Chileshe Katongo | AI & Embedded Systems Developer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --bg: #030712;
-            --card-bg: rgba(30, 41, 59, 0.5);
-            --accent: #10b981;
-            --primary: #6366f1;
-            --text: #f8fafc;
-            --input-bg: rgba(255, 255, 255, 0.05);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        [data-theme="light"] {
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --accent: #059669;
-            --primary: #4f46e5;
-            --text: #0f172a;
-            --input-bg: #f1f5f9;
-        }
+<style>
+:root{
+--bg:#030712;
+--card-bg:rgba(30,41,59,0.5);
+--accent:#10b981;
+--primary:#6366f1;
+--text:#f8fafc;
+--input-bg:rgba(255,255,255,0.05);
+}
 
-        * { box-sizing: border-box; scroll-behavior: smooth; transition: background 0.3s, color 0.3s; }
+[data-theme="light"]{
+--bg:#f8fafc;
+--card-bg:#ffffff;
+--accent:#059669;
+--primary:#4f46e5;
+--text:#0f172a;
+--input-bg:#f1f5f9;
+}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
+*{
+box-sizing:border-box;
+scroll-behavior:smooth;
+transition:background .3s,color .3s;
+}
 
-        nav {
-            background: rgba(2, 6, 23, 0.8);
-            backdrop-filter: blur(12px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 10%;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+body{
+font-family:'Inter',sans-serif;
+margin:0;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+}
 
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        nav a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500; opacity: 0.7; }
-        nav a:hover { opacity: 1; color: var(--accent); }
+/* NAVBAR */
+nav{
+background:rgba(2,6,23,0.8);
+backdrop-filter:blur(12px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:1rem 10%;
+position:sticky;
+top:0;
+z-index:100;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+.nav-right{display:flex;align-items:center;gap:20px;}
+nav a{
+color:var(--text);
+text-decoration:none;
+font-size:14px;
+font-weight:500;
+opacity:.7;
+}
+nav a:hover{
+opacity:1;
+color:var(--accent);
+}
+#theme-toggle{
+background:none;
+border:1px solid var(--accent);
+color:var(--accent);
+padding:5px 10px;
+border-radius:8px;
+cursor:pointer;
+}
 
-        #theme-toggle {
-            background: none;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 5px 10px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+/* HERO */
+.hero{
+min-height:60vh;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:40px;
+padding:40px 10%;
+flex-wrap:wrap;
+}
+.hero img{
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:50%;
+border:4px solid var(--accent);
+}
+.hero-text{
+max-width:500px;
+}
+.hero-text h1{
+font-size:clamp(2.5rem,5vw,3.5rem);
+margin:0;
+font-weight:800;
+}
 
-        /* HERO */
-        .hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; gap: 40px; padding: 40px 10%; flex-wrap: wrap; }
-        .hero img { width: 220px; height: 220px; object-fit: cover; border-radius: 50%; border: 4px solid var(--accent); }
-        .hero-text { max-width: 500px; }
-        .hero-text h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin: 0; font-weight: 800; }
+/* SECTIONS */
+section{
+padding:80px 10%;
+text-align:center;
+}
+h2{
+font-size:2rem;
+margin-bottom:40px;
+position:relative;
+display:inline-block;
+}
+h2::after{
+content:'';
+width:60%;
+height:4px;
+background:var(--accent);
+position:absolute;
+bottom:-10px;
+left:20%;
+border-radius:2px;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+margin-top:20px;
+}
+.card{
+background:var(--card-bg);
+border-radius:20px;
+border:1px solid rgba(255,255,255,.05);
+text-align:center;
+padding:30px 20px;
+transition:transform .3s,border-color .3s;
+}
+.card:hover{
+transform:translateY(-5px);
+border-color:var(--accent);
+}
+.skill-icon{
+font-size:3rem;
+color:var(--accent);
+margin-bottom:15px;
+display:block;
+}
 
-        /* SECTIONS */
-        section { padding: 80px 10%; text-align: center; }
-        h2 { font-size: 2rem; margin-bottom: 40px; position: relative; display: inline-block; }
-        h2::after { content: ''; width: 60%; height: 4px; background: var(--accent); position: absolute; bottom: -10px; left: 20%; border-radius: 2px; }
+/* PROJECTS */
+.project-card{
+text-align:left;
+padding:0;
+overflow:hidden;
+}
+.card-img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+.card-body{
+padding:20px;
+}
+.tech-tags{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:10px;
+}
+.tech-tag{
+background:var(--accent);
+color:var(--text);
+font-size:12px;
+font-weight:600;
+padding:4px 10px;
+border-radius:12px;
+}
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-top: 20px; }
-        
-        .card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            padding: 30px 20px;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+/* CONTACT */
+.contact-container{
+max-width:600px;
+margin:0 auto;
+background:var(--card-bg);
+padding:40px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,.05);
+}
+.form-group{
+margin-bottom:20px;
+text-align:left;
+}
+.form-group label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+input,textarea{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,.1);
+background:var(--input-bg);
+color:var(--text);
+font-family:inherit;
+}
 
-        .skill-icon { font-size: 3rem; color: var(--accent); margin-bottom: 15px; display: block; }
-        
-        /* PROJECTS SPECIFIC */
-        .project-card { text-align: left; padding: 0; overflow: hidden; }
-        .card-img { width: 100%; height: 180px; object-fit: cover; }
-        .card-body { padding: 20px; }
+/* BUTTONS */
+.btn-group{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+.btn{
+cursor:pointer;
+border-radius:10px;
+border:none;
+font-weight:600;
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:12px 24px;
+text-decoration:none;
+}
+.whatsapp{background:#25D366;color:white;}
+.github{background:#333;color:white;}
+.linkedin{background:#0a66c2;color:white;}
+.submit-btn{
+background:var(--primary);
+color:white;
+width:100%;
+justify-content:center;
+}
 
-        /* CONTACT FORM */
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
+/* MOBILE */
+@media(max-width:768px){
+nav{padding:1rem 5%;}
+.hero{text-align:center;justify-content:center;}
+.btn-group{justify-content:center;}
+}
 
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
-        
-        input, textarea {
-            width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);
-            background: var(--input-bg); color: var(--text); font-family: inherit;
-        }
-
-        /* BUTTONS */
-        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-        .btn { 
-            cursor: pointer; border-radius: 10px; border: none; font-weight: 600; 
-            display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; text-decoration: none;
-        }
-        .whatsapp { background: #25D366; color: white; }
-        .github { background: #333; color: white; }
-        .linkedin { background: #0a66c2; color: white; }
-        .submit-btn { background: var(--primary); color: white; width: 100%; justify-content: center; }
-
-        @media (max-width: 768px) {
-            nav { padding: 1rem 5%; }
-            .hero { text-align: center; justify-content: center; }
-            .btn-group { justify-content: center; }
-        }
-    </style>
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">CHILESHE KATONGO</div>
-        <div class="nav-right">
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
-        </div>
-    </nav>
+<nav>
+<div class="logo">CHILESHE KATONGO</div>
+<div class="nav-right">
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a>
+<button id="theme-toggle"><i class="fas fa-moon"></i></button>
+</div>
+</nav>
 
-    <div class="hero">
-        <img src="20250814_084846.jpg" alt="Chileshe Katongo">
-        <div class="hero-text">
-            <h1>Chileshe Katongo</h1>
-            <p style="font-size: 1.2rem; opacity: 0.8;">AI • Robotics • Embedded Systems Developer</p>
-            <div class="btn-group">
-                <a href="https://wa.me/260976069055" class="btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="https://github.com/chileshe1" class="btn github"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/chileshe-katongo-b49615217" class="btn linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            </div>
-        </div>
-    </div>
+<div class="hero">
+<img src="20250814_084846.jpg" alt="Chileshe Katongo">
+<div class="hero-text">
+<h1>Chileshe Katongo</h1>
+<p style="font-size:1.2rem;opacity:.8;">AI • Robotics • Embedded Systems Developer</p>
+<div class="btn-group">
+<a href="https://wa.me/260976069055" class="btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+<a href="https://github.com/chileshe1" class="btn github"><i class="fab fa-github"></i> GitHub</a>
+<a href="https://www.linkedin.com/in/chileshe-katongo-b49615217" class="btn linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+</div>
+</div>
+</div>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="grid">
-            <div class="card"><i class="fab fa-python skill-icon"></i><p>Python</p></div>
-            <div class="card"><i class="fas fa-microchip skill-icon"></i><p>ESP32</p></div>
-            <div class="card"><i class="fas fa-robot skill-icon"></i><p>Robotics</p></div>
-            <div class="card"><i class="fas fa-brain skill-icon"></i><p>AI / ML</p></div>
-            <div class="card"><i class="fas fa-network-wired skill-icon"></i><p>IoT</p></div>
-        </div>
-    </section>
+<section id="skills">
+<h2>Skills</h2>
+<div class="grid">
+<div class="card"><i class="fab fa-python skill-icon"></i><p>Python</p></div>
+<div class="card"><i class="fas fa-microchip skill-icon"></i><p>ESP32</p></div>
+<div class="card"><i class="fas fa-robot skill-icon"></i><p>Robotics</p></div>
+<div class="card"><i class="fas fa-brain skill-icon"></i><p>AI / ML</p></div>
+<div class="card"><i class="fas fa-network-wired skill-icon"></i><p>IoT</p></div>
+<div class="card"><i class="fas fa-sitemap skill-icon"></i><p>PCB Design</p></div>
+</div>
+</section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-            <div class="card project-card">
-                <img src="rover.jpg" class="card-img" alt="Autonomous AI Rover">
-                <div class="card-body">
-                    <h3 style="color: var(--accent); margin-top: 0;">Autonomous AI Rover</h3>
-                    <p>Robot navigation using reinforcement learning and obstacle avoidance.</p>
-                </div>
-            </div>
-            <div class="card project-card">
-                <img src="iot.jpg" class="card-img" alt="ESP32 IoT System">
-                <div class="card-body">
-                    <h3 style="color: var(--accent); margin-top: 0;">ESP32 IoT System</h3>
-                    <p>Wireless monitoring system with real-time sensor data streaming.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="projects">
+<h2>Projects</h2>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
 
-    <section id="education">
-        <h2>Education</h2>
-        <div class="grid">
-            <div class="card">
-                <h3 style="margin-top: 0;">PEAS Kampinda Secondary School</h3>
-                <p>Secondary Education</p>
-            </div>
-            <div class="card">
-                <h3 style="margin-top: 0;">Misolo Primary School</h3>
-                <p>Primary Education</p>
-            </div>
-        </div>
-    </section>
+<div class="card project-card">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdVhcPSSxGQQvHMlem2R2nIbA3pT1TRg8vdw&s" class="card-img" alt="Autonomous Rover">
+<div class="card-body">
+<h3 style="color:var(--accent);margin-top:0;">Autonomous AI Rover</h3>
+<p>Robot Car.</p>
+<div class="tech-tags">
+<span class="tech-tag">ESP32</span>
+<span class="tech-tag">Obstacle avoidance</span>
+<span class="tech-tag">Robotics</span>
+</div>
+</div>
+</div>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <div class="contact-container">
-            <form action="https://formspree.io/f/your-id-here" method="POST">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" placeholder="email@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </section>
+<div class="card project-card">
+<img src="https://kineis.com/wp-content/uploads/2025/03/IoT-internet-of-things.jpg" class="card-img" alt="ESP32 IoT System">
+<div class="card-body">
+<h3 style="color:var(--accent);margin-top:0;">ESP32 IoT System</h3>
+<p>Wireless monitoring system with real-time sensor data streaming.</p>
+<div class="tech-tags">
+<span class="tech-tag">ESP32</span>
+<span class="tech-tag">IoT</span>
+<span class="tech-tag">Sensors</span>
+</div>
+</div>
+</div>
 
-    <footer style="padding: 40px; text-align: center; opacity: 0.6; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05);">
-        <p>© 2026 Chileshe Katongo | AI & Embedded Systems Developer</p>
-    </footer>
+</div>
+</section>
 
-    <script>
-        const toggle = document.getElementById('theme-toggle');
-        const icon = toggle.querySelector('i');
-        toggle.addEventListener('click', () => {
-            if (document.body.hasAttribute('data-theme')) {
-                document.body.removeAttribute('data-theme');
-                icon.className = 'fas fa-moon';
-            } else {
-                document.body.setAttribute('data-theme', 'light');
-                icon.className = 'fas fa-sun';
-            }
-        });
-    </script>
+<section id="education">
+<h2>Education</h2>
+<div class="grid">
+<div class="card"><h3>Northern Technical College (NORTEC)</h3><p>Engineering / Technical Studies</p></div>
+<div class="card"><h3>PEAS Kampinda Secondary School</h3><p>Secondary Education</p></div>
+<div class="card"><h3>Misolo Primary School</h3><p>Primary Education</p></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact Me</h2>
+<div class="contact-container">
+<form onsubmit="sendEmail(event)">
+<div class="form-group"><label>Name</label><input type="text" id="name" required></div>
+<div class="form-group"><label>Email</label><input type="email" id="email" required></div>
+<div class="form-group"><label>Message</label><textarea id="message" rows="4" required></textarea></div>
+<button type="submit" class="btn submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+</form>
+</div>
+</section>
+
+<footer style="padding:40px;text-align:center;opacity:.6;font-size:14px;border-top:1px solid rgba(255,255,255,.05);">
+<p>© 2026 Chileshe Katongo | AI & Embedded Systems Developer</p>
+</footer>
+
+<script>
+const toggle=document.getElementById("theme-toggle");
+const icon=toggle.querySelector("i");
+toggle.addEventListener("click",()=>{
+if(document.body.hasAttribute("data-theme")){
+document.body.removeAttribute("data-theme");
+icon.className="fas fa-moon";
+}else{
+document.body.setAttribute("data-theme","light");
+icon.className="fas fa-sun";
+}
+});
+
+function sendEmail(e){
+e.preventDefault();
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let message=document.getElementById("message").value;
+let subject="Portfolio Contact from "+name;
+let body="Name: "+name+"%0D%0AEmail: "+email+"%0D%0A%0D%0A"+message;
+window.location.href="mailto:chilkatongo4@gmail.com?subject="+subject+"&body="+body;
+}
+</script>
+
 </body>
 </html>
