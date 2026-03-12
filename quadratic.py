@@ -1,1 +1,0 @@
-print("Quadratic equation solver")
