@@ -68,27 +68,29 @@
         .hero-text { max-width: 500px; }
         .hero-text h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin: 0; font-weight: 800; }
 
-        /* GRID SYSTEM */
+        /* SECTIONS */
         section { padding: 80px 10%; text-align: center; }
         h2 { font-size: 2rem; margin-bottom: 40px; position: relative; display: inline-block; }
-        h2::after { content: ''; width: 50%; height: 4px; background: var(--accent); position: absolute; bottom: -10px; left: 25%; border-radius: 2px; }
+        h2::after { content: ''; width: 60%; height: 4px; background: var(--accent); position: absolute; bottom: -10px; left: 20%; border-radius: 2px; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-top: 20px; }
         
         .card {
             background: var(--card-bg);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: left;
-            overflow: hidden;
-            transition: transform 0.3s;
+            text-align: center;
+            padding: 30px 20px;
+            transition: transform 0.3s, border-color 0.3s;
         }
         .card:hover { transform: translateY(-5px); border-color: var(--accent); }
 
+        .skill-icon { font-size: 3rem; color: var(--accent); margin-bottom: 15px; display: block; }
+        
+        /* PROJECTS SPECIFIC */
+        .project-card { text-align: left; padding: 0; overflow: hidden; }
         .card-img { width: 100%; height: 180px; object-fit: cover; }
         .card-body { padding: 20px; }
-
-        .skill-icon { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
 
         /* CONTACT FORM */
         .contact-container {
@@ -131,10 +133,10 @@
     <nav>
         <div class="logo">CHILESHE KATONGO</div>
         <div class="nav-right">
+            <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-            <button id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
     </nav>
 
@@ -151,21 +153,32 @@
         </div>
     </div>
 
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="grid">
+            <div class="card"><i class="fab fa-python skill-icon"></i><p>Python</p></div>
+            <div class="card"><i class="fas fa-microchip skill-icon"></i><p>ESP32</p></div>
+            <div class="card"><i class="fas fa-robot skill-icon"></i><p>Robotics</p></div>
+            <div class="card"><i class="fas fa-brain skill-icon"></i><p>AI / ML</p></div>
+            <div class="card"><i class="fas fa-network-wired skill-icon"></i><p>IoT</p></div>
+        </div>
+    </section>
+
     <section id="projects">
         <h2>Projects</h2>
-        <div class="grid">
-            <div class="card">
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="card project-card">
                 <img src="rover.jpg" class="card-img" alt="Autonomous AI Rover">
                 <div class="card-body">
                     <h3 style="color: var(--accent); margin-top: 0;">Autonomous AI Rover</h3>
-                    <p>Robot navigation using reinforcement learning and advanced obstacle avoidance.</p>
+                    <p>Robot navigation using reinforcement learning and obstacle avoidance.</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card project-card">
                 <img src="iot.jpg" class="card-img" alt="ESP32 IoT System">
                 <div class="card-body">
                     <h3 style="color: var(--accent); margin-top: 0;">ESP32 IoT System</h3>
-                    <p>Wireless monitoring system using localized sensors and real-time data streaming.</p>
+                    <p>Wireless monitoring system with real-time sensor data streaming.</p>
                 </div>
             </div>
         </div>
@@ -175,35 +188,31 @@
         <h2>Education</h2>
         <div class="grid">
             <div class="card">
-                <div class="card-body">
-                    <h3>PEAS Kampinda Secondary School</h3>
-                    <p>Secondary Education</p>
-                </div>
+                <h3 style="margin-top: 0;">PEAS Kampinda Secondary School</h3>
+                <p>Secondary Education</p>
             </div>
             <div class="card">
-                <div class="card-body">
-                    <h3>Misolo Primary School</h3>
-                    <p>Primary Education</p>
-                </div>
+                <h3 style="margin-top: 0;">Misolo Primary School</h3>
+                <p>Primary Education</p>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Connect With Me</h2>
+        <h2>Contact Me</h2>
         <div class="contact-container">
             <form action="https://formspree.io/f/your-id-here" method="POST">
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" placeholder="Enter your name" required>
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <input type="email" name="email" placeholder="email@example.com" required>
                 </div>
                 <div class="form-group">
                     <label>Message</label>
-                    <textarea name="message" rows="4" placeholder="Your message..." required></textarea>
+                    <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
             </form>
