@@ -13,6 +13,7 @@
 
 *{
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
@@ -21,6 +22,30 @@ margin:0;
 background:#0f172a;
 color:white;
 line-height:1.6;
+}
+
+/* NAVBAR */
+
+nav{
+background:#020617;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+nav h3{
+margin:0;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:15px;
 }
 
 /* HERO */
@@ -43,12 +68,11 @@ border:4px solid #22c55e;
 }
 
 .hero-text h1{
-font-size:40px;
+font-size:38px;
 margin-bottom:10px;
 }
 
 .hero-text p{
-font-size:18px;
 opacity:0.9;
 }
 
@@ -61,11 +85,6 @@ border:none;
 border-radius:6px;
 font-size:16px;
 cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.05);
 }
 
 .whatsapp{
@@ -78,6 +97,11 @@ background:#0a66c2;
 color:white;
 }
 
+.github{
+background:#333;
+color:white;
+}
+
 /* SECTIONS */
 
 section{
@@ -86,8 +110,7 @@ text-align:center;
 }
 
 h2{
-margin-bottom:40px;
-font-size:30px;
+margin-bottom:30px;
 }
 
 /* SKILLS */
@@ -104,15 +127,10 @@ background:#1e293b;
 padding:20px;
 border-radius:10px;
 width:130px;
-transition:0.3s;
-}
-
-.skill:hover{
-transform:translateY(-5px);
 }
 
 .skill i{
-font-size:32px;
+font-size:30px;
 margin-bottom:10px;
 }
 
@@ -128,11 +146,6 @@ gap:20px;
 background:#1e293b;
 border-radius:10px;
 overflow:hidden;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
 }
 
 .card img{
@@ -145,6 +158,20 @@ object-fit:cover;
 padding:20px;
 }
 
+/* EDUCATION */
+
+.education{
+max-width:600px;
+margin:auto;
+}
+
+.school{
+background:#1e293b;
+padding:20px;
+margin:15px 0;
+border-radius:10px;
+}
+
 /* FOOTER */
 
 footer{
@@ -152,29 +179,23 @@ background:#020617;
 padding:30px;
 text-align:center;
 font-size:14px;
-opacity:0.8;
 }
 
-/* MOBILE RESPONSIVENESS */
+/* MOBILE */
 
 @media (max-width:768px){
 
+nav{
+flex-direction:column;
+gap:10px;
+}
+
 .hero{
 flex-direction:column;
-padding:60px 20px;
 }
 
 .hero-text h1{
-font-size:32px;
-}
-
-.hero-text p{
-font-size:16px;
-}
-
-.skill{
-width:110px;
-padding:16px;
+font-size:30px;
 }
 
 button{
@@ -190,6 +211,23 @@ max-width:250px;
 
 <body>
 
+<!-- NAVBAR -->
+
+<nav>
+
+<h3>Chileshe</h3>
+
+<div>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+<!-- HERO -->
+
 <div class="hero">
 
 <img src="20250814_084846.jpg">
@@ -200,19 +238,28 @@ max-width:250px;
 
 <p>AI • Robotics • Embedded Systems Developer</p>
 
-<button class="whatsapp" onclick="window.location.href='https://wa.me/260976069055'">
+<button class="whatsapp"
+onclick="window.location.href='https://wa.me/260976069055'">
 <i class="fab fa-whatsapp"></i> WhatsApp
 </button>
 
-<button class="linkedin" onclick="window.location.href='https://linkedin.com/in/YOURPROFILE'">
+<button class="linkedin"
+onclick="window.location.href='https://www.linkedin.com/in/chileshe-katongo-b49615217'">
 <i class="fab fa-linkedin"></i> LinkedIn
+</button>
+
+<button class="github"
+onclick="window.location.href='https://github.com/chileshe1'">
+<i class="fab fa-github"></i> GitHub
 </button>
 
 </div>
 
 </div>
 
-<section>
+<!-- SKILLS -->
+
+<section id="skills">
 
 <h2>Skills</h2>
 
@@ -238,11 +285,18 @@ max-width:250px;
 <p>AI / ML</p>
 </div>
 
+<div class="skill">
+<i class="fas fa-network-wired"></i>
+<p>IoT</p>
+</div>
+
 </div>
 
 </section>
 
-<section>
+<!-- PROJECTS -->
+
+<section id="projects">
 
 <h2>Projects</h2>
 
@@ -280,9 +334,60 @@ max-width:250px;
 
 </section>
 
+<!-- EDUCATION -->
+
+<section id="education">
+
+<h2>Education</h2>
+
+<div class="education">
+
+<div class="school">
+
+<h3>Misolo Primary School</h3>
+
+<p>Primary Education</p>
+
+</div>
+
+<div class="school">
+
+<h3>PEAS Kampinda Secondary School</h3>
+
+<p>Secondary Education</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>Connect With Me</h2>
+
+<button class="whatsapp"
+onclick="window.location.href='https://wa.me/260976069055'">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</button>
+
+<button class="linkedin"
+onclick="window.location.href='https://www.linkedin.com/in/chileshe-katongo-b49615217'">
+<i class="fab fa-linkedin"></i> LinkedIn
+</button>
+
+<button class="github"
+onclick="window.location.href='https://github.com/chileshe1'">
+<i class="fab fa-github"></i> GitHub
+</button>
+
+</section>
+
 <footer>
 
-<p>© 2026 Chileshe</p>
+<p>© 2026 Chileshe | AI & Embedded Systems Developer</p>
 
 </footer>
 
