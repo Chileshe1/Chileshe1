@@ -1,396 +1,184 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Chileshe | AI & Embedded Systems Developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<title>Chileshe | AI & Embedded Systems Developer</title>
+    <style>
+        :root {
+            --bg: #030712;
+            --card-bg: rgba(30, 41, 59, 0.5);
+            --accent: #10b981;
+            --primary: #6366f1;
+            --text: #f8fafc;
+            --input-bg: rgba(255, 255, 255, 0.05);
+        }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --accent: #059669;
+            --primary: #4f46e5;
+            --text: #0f172a;
+            --input-bg: #f1f5f9;
+        }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        * { box-sizing: border-box; scroll-behavior: smooth; transition: background 0.3s, color 0.3s; }
 
-<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-*{
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+        nav {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-body{
-font-family:Arial, sans-serif;
-margin:0;
-background:#0f172a;
-color:white;
-line-height:1.6;
-}
+        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -1px; }
 
-/* NAVBAR */
+        .nav-right { display: flex; align-items: center; gap: 20px; }
 
-nav{
-background:#020617;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 30px;
-position:sticky;
-top:0;
-z-index:100;
-}
+        nav a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500; opacity: 0.7; }
+        nav a:hover { opacity: 1; color: var(--accent); }
 
-nav h3{
-margin:0;
-}
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 5px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-size:15px;
-}
+        /* HERO */
+        .hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; gap: 40px; padding: 40px 10%; flex-wrap: wrap; }
+        .hero img { width: 240px; height: 240px; object-fit: cover; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; border: 2px solid var(--accent); }
+        .hero-text { max-width: 500px; }
+        .hero-text h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 0; }
 
-/* HERO */
+        /* CONTACT FORM */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-.hero{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:40px;
-padding:80px 20px;
-flex-wrap:wrap;
-text-align:center;
-}
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--input-bg);
+            color: var(--text);
+            font-family: inherit;
+        }
 
-.hero img{
-width:220px;
-max-width:80%;
-border-radius:50%;
-border:4px solid #22c55e;
-}
+        .submit-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            justify-content: center;
+            padding: 15px;
+            font-size: 16px;
+        }
 
-.hero-text h1{
-font-size:38px;
-margin-bottom:10px;
-}
+        /* UTILS */
+        section { padding: 80px 10%; text-align: center; }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        button { cursor: pointer; border-radius: 10px; border: none; font-weight: 600; display: flex; align-items: center; gap: 8px; padding: 10px 20px; }
+        .whatsapp { background: #25D366; color: white; }
 
-.hero-text p{
-opacity:0.9;
-}
-
-/* BUTTONS */
-
-button{
-padding:12px 22px;
-margin:8px;
-border:none;
-border-radius:6px;
-font-size:16px;
-cursor:pointer;
-}
-
-.whatsapp{
-background:#25D366;
-color:white;
-}
-
-.linkedin{
-background:#0a66c2;
-color:white;
-}
-
-.github{
-background:#333;
-color:white;
-}
-
-/* SECTIONS */
-
-section{
-padding:60px 20px;
-text-align:center;
-}
-
-h2{
-margin-bottom:30px;
-}
-
-/* SKILLS */
-
-.skills{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
-
-.skill{
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-width:130px;
-}
-
-.skill i{
-font-size:30px;
-margin-bottom:10px;
-}
-
-/* PROJECTS */
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:#1e293b;
-border-radius:10px;
-overflow:hidden;
-}
-
-.card img{
-width:100%;
-height:160px;
-object-fit:cover;
-}
-
-.card-content{
-padding:20px;
-}
-
-/* EDUCATION */
-
-.education{
-max-width:600px;
-margin:auto;
-}
-
-.school{
-background:#1e293b;
-padding:20px;
-margin:15px 0;
-border-radius:10px;
-}
-
-/* FOOTER */
-
-footer{
-background:#020617;
-padding:30px;
-text-align:center;
-font-size:14px;
-}
-
-/* MOBILE */
-
-@media (max-width:768px){
-
-nav{
-flex-direction:column;
-gap:10px;
-}
-
-.hero{
-flex-direction:column;
-}
-
-.hero-text h1{
-font-size:30px;
-}
-
-button{
-width:90%;
-max-width:250px;
-}
-
-}
-
-</style>
-
+        @media (max-width: 768px) {
+            nav { padding: 1rem 5%; }
+            .hero { text-align: center; }
+            .hero-text { display: flex; flex-direction: column; align-items: center; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-
-<nav>
-
-<h3>Chileshe</h3>
-
-<div>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#education">Education</a>
-<a href="#contact">Contact</a>
-</div>
-
-</nav>
-
-<!-- HERO -->
-
-<div class="hero">
-
-<img src="20250814_084846.jpg">
-
-<div class="hero-text">
-
-<h1>Chileshe</h1>
-
-<p>AI • Robotics • Embedded Systems Developer</p>
-
-<button class="whatsapp"
-onclick="window.location.href='https://wa.me/260976069055'">
-<i class="fab fa-whatsapp"></i> WhatsApp
-</button>
-
-<button class="linkedin"
-onclick="window.location.href='https://www.linkedin.com/in/chileshe-katongo-b49615217'">
-<i class="fab fa-linkedin"></i> LinkedIn
-</button>
-
-<button class="github"
-onclick="window.location.href='https://github.com/chileshe1'">
-<i class="fab fa-github"></i> GitHub
-</button>
-
-</div>
-
-</div>
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-<h2>Skills</h2>
-
-<div class="skills">
-
-<div class="skill">
-<i class="fab fa-python"></i>
-<p>Python</p>
-</div>
-
-<div class="skill">
-<i class="fas fa-microchip"></i>
-<p>ESP32</p>
-</div>
-
-<div class="skill">
-<i class="fas fa-robot"></i>
-<p>Robotics</p>
-</div>
-
-<div class="skill">
-<i class="fas fa-brain"></i>
-<p>AI / ML</p>
-</div>
-
-<div class="skill">
-<i class="fas fa-network-wired"></i>
-<p>IoT</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-<h2>Projects</h2>
-
-<div class="projects">
-
-<div class="card">
-
-<img src="rover.jpg">
-
-<div class="card-content">
-
-<h3>Autonomous AI Rover</h3>
-
-<p>Robot navigation using reinforcement learning.</p>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<img src="iot.jpg">
-
-<div class="card-content">
-
-<h3>ESP32 IoT System</h3>
-
-<p>Wireless monitoring system using sensors.</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- EDUCATION -->
-
-<section id="education">
-
-<h2>Education</h2>
-
-<div class="education">
-
-<div class="school">
-
-<h3>Misolo Primary School</h3>
-
-<p>Primary Education</p>
-
-</div>
-
-<div class="school">
-
-<h3>PEAS Kampinda Secondary School</h3>
-
-<p>Secondary Education</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2>Connect With Me</h2>
-
-<button class="whatsapp"
-onclick="window.location.href='https://wa.me/260976069055'">
-<i class="fab fa-whatsapp"></i> WhatsApp
-</button>
-
-<button class="linkedin"
-onclick="window.location.href='https://www.linkedin.com/in/chileshe-katongo-b49615217'">
-<i class="fab fa-linkedin"></i> LinkedIn
-</button>
-
-<button class="github"
-onclick="window.location.href='https://github.com/chileshe1'">
-<i class="fab fa-github"></i> GitHub
-</button>
-
-</section>
-
-<footer>
-
-<p>© 2026 Chileshe | AI & Embedded Systems Developer</p>
-
-</footer>
-
+    <nav>
+        <div class="logo">CHILESHE.DEV</div>
+        <div class="nav-right">
+            <a href="#projects">Work</a>
+            <a href="#contact">Contact</a>
+            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <img src="20250814_084846.jpg" alt="Chileshe">
+        <div class="hero-text">
+            <h1>Hi, I'm <span style="color: var(--accent)">Chileshe</span>.</h1>
+            <p>Developing robust AI solutions and embedded systems with a focus on robotics and IoT.</p>
+            <div class="btn-group">
+                <button class="whatsapp" onclick="window.location.href='https://wa.me/260976069055'">
+                    <i class="fab fa-whatsapp"></i> Chat Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <form action="https://formspree.io/f/your-id-here" method="POST">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" name="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="_replyto" placeholder="email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Project Details</label>
+                    <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Chileshe Katongo | Powered by Innovation</p>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = toggle.querySelector('i');
+
+        toggle.addEventListener('click', () => {
+            if (body.hasAttribute('data-theme')) {
+                body.removeAttribute('data-theme');
+                icon.className = 'fas fa-moon';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                icon.className = 'fas fa-sun';
+            }
+        });
+    </script>
 </body>
-
 </html>
